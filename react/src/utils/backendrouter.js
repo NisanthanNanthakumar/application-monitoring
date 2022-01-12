@@ -1,4 +1,4 @@
-const DEFAULT_BACKEND = "flask"
+const DEFAULT_BACKEND = "express"
 
 const SUPPORTED_BACKEND_TYPES = {
   "flask": {
@@ -16,15 +16,15 @@ const SUPPORTED_BACKEND_TYPES = {
 }
 
 const determineBackendType = (desiredBackend) => {
-    if (desiredBackend) {
-        if (SUPPORTED_BACKEND_TYPES[desiredBackend]) {
-          return desiredBackend
-        } else {
-          const warnText = "You tried to set backend type as '" + desiredBackend + "', which is not supported. Proceeding with the default type: '" + DEFAULT_BACKEND + "'"
-          alert(warnText)
-          console.log(warnText)
-        }
-    }
+    // if (desiredBackend) {
+    //     if (SUPPORTED_BACKEND_TYPES[desiredBackend]) {
+    //       return desiredBackend
+    //     } else {
+    //       const warnText = "You tried to set backend type as '" + desiredBackend + "', which is not supported. Proceeding with the default type: '" + DEFAULT_BACKEND + "'"
+    //       alert(warnText)
+    //       console.log(warnText)
+    //     }
+    // }
     return DEFAULT_BACKEND
 }
 

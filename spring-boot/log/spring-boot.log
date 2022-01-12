@@ -1,1 +1,0 @@
-Uncomment /src/main/resources/application.properties file, line: logging.file.name=log/spring-boot.log
