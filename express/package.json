@@ -1,11 +1,13 @@
 {
-    "name": "appengine-standard-getting-started-build-apps",
+    "name": "server",
     "version": "0.0.1",
     "description": "Node.js getting started sample for building an app on App Engine standard environment.",
     "private": true,
     "main": "server.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "npm run migrations && npm run seed && node server.js",
+        "migrations": "knex migrate:latest",
+        "seed": "knex seed:run",
         "deploy": "gcloud app deploy",
         "test": "mocha --exit test/*.test.js"
     },
@@ -14,7 +16,7 @@
         "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
     },
     "engines": {
-        "node": "14.x.x"
+        "node": "14.14.0"
     },
     "author": "Google Inc.",
     "license": "Apache-2.0",
@@ -23,7 +25,7 @@
         "@sentry/node": "^6.16.1",
         "@sentry/tracing": "^6.16.1",
         "cors": "^2.8.5",
-        "dotenv": "^10.0.0",
+        "dotenv": "^11.0.0",
         "express": "^4.17.1",
         "knex": "^0.95.11",
         "pg": "^8.7.1"

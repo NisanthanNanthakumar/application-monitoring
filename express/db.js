@@ -137,25 +137,9 @@ function formatArray(ids) {
 }
 
 function openDBConnection() {
-
-  let host
-  if (process.env.EXPRESS_ENV === 'test') {
-    // The cloud sql instance connection
-    // name doesn't work locally, but the
-    // public IP of the instance does.
-    host = process.env.CLOUD_SQL_PUBLIC_IP
-  } else {
-    host = '/cloudsql/' + process.env.CLOUD_SQL_CONNECTION_NAME
-  }
-  console.log("> host ", host)
   const db = require('knex')({
     client: 'pg',
-    connection: {
-      user: process.env.USERNAME,
-      password: process.env.PASSWORD,
-      database: process.env.DATABASE,
-      host: host
-    }
+    connection: process.env.DATABASE_URL
   });
   return db;
 }
